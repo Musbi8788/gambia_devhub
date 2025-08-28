@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ developer.user.username }}'s Profile</h2>
+<p><strong>Email:</strong> {{ developer.user.email }}</p>
+<p><strong>Bio:</strong> {{ developer.bio }}</p>
+<p><strong>Skills:</strong> {{ developer.skills }}</p>
+<p><strong>Level:</strong> {{ developer.level|title }}</p>
+
+{% if developer.github %}
+  <p><a href="{{ developer.github }}" target="_blank">GitHub</a></p>
+{% endif %}
+{% if developer.linkedin %}
+  <p><a href="{{ developer.linkedin }}" target="_blank">LinkedIn</a></p>
+{% endif %}
+{% endblock %}

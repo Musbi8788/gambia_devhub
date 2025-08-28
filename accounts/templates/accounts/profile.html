@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-8 offset-md-2">
+  <h2>{{ user_profile.username }}'s Profile</h2>
+  <p><strong>Email:</strong> {{ user_profile.email }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Update Profile</button>
+  </form>
+</div>
+{% endblock %}

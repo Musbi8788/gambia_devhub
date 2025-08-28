@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="mb-3">Welcome to Gambia DevHub 🌍</h1>
+    <p class="lead">A platform to connect Gambian developers — beginners, mentors, and professionals.</p>
+    <a href="{% url 'register' %}" class="btn btn-primary btn-lg mt-3">Join Now</a>
+    <a href="{% url 'dev_list' %}" class="btn btn-secondary btn-lg mt-3">Explore Developers</a>
+</div>
+{% endblock %}

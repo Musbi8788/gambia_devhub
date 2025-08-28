@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Projects</h2>
+<a href="{% url 'add_project' %}" class="btn btn-primary mb-3">+ New Project</a>
+
+<div class="list-group">
+  {% for project in projects %}
+    <a href="{% url 'project_detail' project.id %}" class="list-group-item list-group-item-action">
+      <h5>{{ project.title }}</h5>
+      <p>{{ project.description|truncatewords:20 }}</p>
+      <small>By {{ project.created_by.username }} | {{ project.created_at|date:"M d, Y" }}</small>
+    </a>
+  {% empty %}
+    <p>No projects yet. Be the first to post one!</p>
+  {% endfor %}
+</div>
+{% endblock %}

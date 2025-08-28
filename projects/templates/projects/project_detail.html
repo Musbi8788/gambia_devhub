@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ project.title }}</h2>
+<p>{{ project.description }}</p>
+<p><strong>Created by:</strong> {{ project.created_by.username }}</p>
+<p><strong>Collaborators:</strong>
+  {% for user in project.collaborators.all %}
+    {{ user.username }}{% if not forloop.last %}, {% endif %}
+  {% empty %}
+    None yet
+  {% endfor %}
+</p>
+{% endblock %}

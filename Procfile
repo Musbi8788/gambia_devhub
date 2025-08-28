@@ -1,1 +1,1 @@
-web: gunicorn gdevhub.wsgi
+web: gunicorn gambia_devhub.wsgi

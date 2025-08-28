@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'accounts',
     'directory',
     'projects',
+    "crispy_forms",
+    "crispy_bootstrap5",
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,6 +57,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'gambia_devhub.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 import os
 from pathlib import Path

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-hmtd_57=d(9w-i$mk*u+jvy@dm05%i9@=3m1*&s=x&pa-eizp&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

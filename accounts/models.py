@@ -13,6 +13,7 @@ class Profile(models.Model):
     level = models.CharField(max_length=20, choices=LEVELS, default='beginner')
     github = models.URLField(blank=True)
     linkedin = models.URLField(blank=True)
+    pro_img = models.ImageField(default='')
 
     def __str__(self):
         return self.user.username

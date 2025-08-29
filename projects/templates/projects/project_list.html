@@ -7,10 +7,21 @@
 
 <div class="list-group border border-primary mb-5 shadow p-3 mb-5 bg-body rounded">
   {% for project in projects %}
-    <a href="{% url 'project_detail' project.id %}" class="list-group-item list-group-item-action">
-      <h5>{{ project.title }}</h5>
-      <p>{{ project.description|truncatewords:20 }}</p>
-      <small>By {{ project.created_by.username }} | {{ project.created_at|date:"M d, Y" }}</small>
+    <a href="{% url 'project_detail' project.id %}" class="list-group-item list-group-item-action d-flex align-items-start">
+      
+      <!-- Thumbnail -->
+      {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" style="width: 80px; height: 80px; object-fit: cover; margin-right: 15px; border-radius: 5px;">
+      {% else %}
+        <img src="{% static 'default-thumbnail.png' %}" alt="No image" style="width: 80px; height: 80px; object-fit: cover; margin-right: 15px; border-radius: 5px;">
+      {% endif %}
+
+      <div>
+        <h5>{{ project.title }}</h5>
+        <p>{{ project.description|truncatewords:20 }}</p>
+        <small>By {{ project.created_by.username }} | {{ project.created_at|date:"M d, Y" }}</small>
+      </div>
+
     </a>
   {% empty %}
     <p>No projects yet. Be the first to post one!</p>

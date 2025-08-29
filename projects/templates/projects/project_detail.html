@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+
 <h2>{{ project.title }}</h2>
 <p>{{ project.description }}</p>
+
 <p><strong>Created by:</strong> {{ project.created_by.username }}</p>
+
 <p><strong>Collaborators:</strong>
   {% for user in project.collaborators.all %}
     {{ user.username }}{% if not forloop.last %}, {% endif %}
@@ -11,4 +14,32 @@
     None yet
   {% endfor %}
 </p>
+
+<!-- Display image if uploaded -->
+{% if project.image %}
+    <div>
+        <h4>Image:</h4>
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 500px; height: auto;">
+    </div>
+{% endif %}
+
+<!-- Display video if uploaded -->
+{% if project.video %}
+    <div>
+        <h4>Video:</h4>
+        <video width="500" controls>
+            <source src="{{ project.video.url }}">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+{% endif %}
+
+<!-- Display link if provided -->
+{% if project.link %}
+    <div>
+        <h4>Project Link:</h4>
+        <a href="{{ project.link }}" target="_blank">{{ project.link }}</a>
+    </div>
+{% endif %}
+
 {% endblock %}

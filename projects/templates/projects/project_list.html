@@ -5,7 +5,7 @@
 <h2>Projects</h2>
 <a href="{% url 'add_project' %}" class="btn btn-primary mb-3">+ New Project</a>
 
-<div class="list-group">
+<div class="list-group border border-primary mb-5 shadow p-3 mb-5 bg-body rounded">
   {% for project in projects %}
     <a href="{% url 'project_detail' project.id %}" class="list-group-item list-group-item-action">
       <h5>{{ project.title }}</h5>

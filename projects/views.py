@@ -14,12 +14,14 @@ def project_detail(request, project_id):
 @login_required
 def add_project(request):
     if request.method == "POST":
-        form = ProjectForm(request.POST)
+        # Include request.FILES to handle image/video uploads
+        form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project = form.save(commit=False)
             project.created_by = request.user
             project.save()
             project.collaborators.add(request.user)  # auto-join creator
+            form.save_m2m()  # save collaborators if any
             return redirect("project_list")
     else:
         form = ProjectForm()

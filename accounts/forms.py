@@ -10,6 +10,15 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ["username", "email", "password1", "password2"]
 
+
+        help_texts = {
+            "username": None,
+            "password1": None,
+            "password2": None,
+        }
+        
+
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile

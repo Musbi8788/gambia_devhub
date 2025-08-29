@@ -8,5 +8,9 @@ class Project(models.Model):
     collaborators = models.ManyToManyField(User, related_name="collaborations", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    image = models.ImageField(upload_to="project_images/", blank=True, null=True)
+    video = models.FileField(upload_to="project_videos/", blank=True, null=True)
+    link = models.URLField(max_length=200, blank=True, null=True)
+
     def __str__(self):
         return self.title

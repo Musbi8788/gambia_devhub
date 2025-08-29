@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 <div class="col-md-6 offset-md-3">
   <h2>Register</h2>
   <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn mb-3 btn-primary">Register</button>
   </form>
 </div>
 {% endblock %}

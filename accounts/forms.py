@@ -13,4 +13,4 @@ class RegisterForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ["bio", "skills", "level", "github", "linkedin"]
+        fields = ["bio", "skills", "level", "github", "linkedin", "profile_image"]

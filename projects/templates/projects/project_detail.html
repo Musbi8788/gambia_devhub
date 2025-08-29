@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 <h2>{{ project.title }}</h2>
 <p>{{ project.description }}</p>
 <p><strong>Created by:</strong> {{ project.created_by.username }}</p>

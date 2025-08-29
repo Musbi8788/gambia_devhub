@@ -4,6 +4,14 @@
 {% load crispy_forms_tags %}
 
 <h2>{{ developer.user.username }}'s Profile</h2>
+
+{% if developer.profile_image %}
+    <img class="border border-info" src="{{ developer.profile_image.url }}" alt="Profile Image" width="150" height="150">
+{% else %}
+    <img class="border border-info" src="{% static 'images/default.png' %}" alt="Default Image" width="150" height="150">
+{% endif %}
+
+
 <p><strong>Email:</strong> {{ developer.user.email }}</p>
 <p><strong>Bio:</strong> {{ developer.bio }}</p>
 <p><strong>Skills:</strong> {{ developer.skills }}</p>

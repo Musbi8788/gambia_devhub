@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% load static %}
 {% load crispy_forms_tags %}
 
 <div class="col-md-8 offset-md-2">
   <h2>{{ user_profile.username }}'s Profile</h2>
   <p><strong>Email:</strong> {{ user_profile.email }}</p>
 
-  <form method="post">
+  {% if user_profile.profile.profile_image %}
+    <img class="border border-success" src="{{ user_profile.profile.profile_image.url }}" alt="Profile Image" width="150" height="150">
+  {% else %}
+    <img class="border border-success" src="{% static 'images/default.png' %}" alt="Default Image" width="150" height="150">
+  {% endif %}
+
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     
       {{ form|crispy }}
